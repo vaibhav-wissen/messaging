@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Spring boot eamil teplate with Thymeleaf</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
+
+    <!-- use the font -->
+    <style>
+        body {
+            font-family: 'Calibri', sans-serif;
+            font-size: 20px;
+        }
+        table {
+            padding: 2px;
+            border: 3px solid;
+            align-items: center;
+        }
+        thead, th {
+            border: 1px solid;
+            margin: 5px;
+        }
+        tbody {
+            font-family: 'Arial', sans-serif;
+            font-size: 15px;
+        }
+        tbody, tr {
+            align-items: center;
+            margin: 5px;
+        }
+        tbody, td {
+            align-content: center;
+            margin: 5px;
+            border: 1px solid;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+    <body>
+        <p th:if="${crontime}">
+            <strong th:text="'This mail is scheduled after every ' + ${crontime} + ' mins.'"></strong>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>S No</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Created At</th>
+                    <th>Url</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="story, iter : ${topStoriesList}">
+                    <td align="center"><span th:text="${iter.index + 1}">S.no</span></td>
+                    <td><span th:text="${story.title}"> Title </span></td>
+                    <td align="center"><span th:text="${story.by}"> Author </span></td>
+                    <td align="center"><span th:text="${story.time}"> Time </span></td>
+                    <td align="center"><span><a th:href="${story.url}"> Click to open </a></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            <strong>Regards,</strong><br />
+            <em th:text="${name}"></em> <br />
+            <em th:text="${location}"></em>
+        </p>
+    </body>
+</html>
+
+
