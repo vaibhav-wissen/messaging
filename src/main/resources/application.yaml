@@ -1,14 +1,17 @@
 spring:
   application:
-    from: ${USERNAME}
+    from: ${UNAME}
     to: ${TO}
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ${USERNAME}
+    username: ${UNAME}
     password: ${PASSWORD}
+    protocol: smtp
     properties:
       mail:
         smtp:
           auth: true
           starttls.enable: true
+  logging:
+    level: INFO

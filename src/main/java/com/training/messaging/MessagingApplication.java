@@ -7,7 +7,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
+@EnableScheduling
 @SpringBootApplication
 public class MessagingApplication {
 
@@ -20,11 +22,13 @@ public class MessagingApplication {
 		SpringApplication.run(MessagingApplication.class, args);
 
 	}
-	@EventListener(ApplicationReadyEvent.class)
+	/*@EventListener(ApplicationReadyEvent.class)
 	public void sendMail() {
+
 		emailService.send(to,
 				"Some good subject",
 				"This is my final message to you");
 	}
+	 */
 
 }
