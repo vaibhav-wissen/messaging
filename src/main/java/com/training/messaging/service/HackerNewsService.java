@@ -26,8 +26,8 @@ public class HackerNewsService {
     @Value("${spring.application.to}")
     private String to;
 
-//    @Value("${spring.application.cron-delay}")
-//    private Long crontime;
+    @Value("${spring.application.cron-delay}")
+    private Long crontime;
 
     @Autowired
     private RestTemplate restTemplate;
@@ -44,7 +44,7 @@ public class HackerNewsService {
 
             topStoriesMap.put("name", "Vaibhav Malviya");
             topStoriesMap.put("location", "Bangalore");
-//            topStoriesMap.put("crontime", (crontime / 60));
+            topStoriesMap.put("crontime", (crontime / 60));
 
 
             log.debug("Stories Link: {}", storiesId);

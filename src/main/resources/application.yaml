@@ -2,6 +2,7 @@ spring:
   application:
     from: ${UNAME}
     to: ${TO}
+    cron-delay: ${CRONTIME:120}
   mail:
     host: smtp.gmail.com
     port: 587
